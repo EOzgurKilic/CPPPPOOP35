@@ -1,4 +1,6 @@
-﻿namespace CPPPPOOP35
+﻿using System.ComponentModel.Design.Serialization;
+
+namespace CPPPPOOP35
 {
     internal class Program
     {
@@ -22,7 +24,7 @@
 
 
             #region Structs
-            /*ExpStruct struct1= new ExpStruct() {No1 = 20, No2 = 40, PropNo1 = 60, PropNo2 = 80 };
+            ExpStruct struct1= new ExpStruct() {No1 = 20, No2 = 40, PropNo1 = 60, PropNo2 = 80 };
             ExpStruct struct2;
             struct2.No1 = 50;
             struct2.No2 = 40;
@@ -35,7 +37,7 @@
             Console.WriteLine(struct1.PropNo2);
             //Console.WriteLine(struct2.PropNo2); //Would throw an error.
             Console.WriteLine(struct1.IntMethodInstance());
-            //Console.WriteLine(struct2.IntMethodInstance()); //Would throw an error.*/
+            //Console.WriteLine(struct2.IntMethodInstance()); //Would throw an error.
             #endregion
         }
     }
@@ -77,10 +79,22 @@
             return No1 +No2 + PropNo1 +PropNo2;
         }
 
-        //The following is not applicable to the classes since this keyword acts as read-only.
+        //The following is not applicable to the classes since this keyword acts as read-only in them.
         public void ResetObj() 
         {
             this = new ExpStruct();
+        }
+    }
+
+    
+    //Just wanted to revise down below how to create a class with one single instance through static constructor
+    class TrialClass
+    {
+        public TrialClass OnlyInstance {get;}
+
+        static TrialClass()
+        {
+            TrialClass trial = new TrialClass();
         }
     }
 
